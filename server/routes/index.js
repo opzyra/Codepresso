@@ -1,0 +1,20 @@
+const router = require('express').Router()
+const auth = require('./auth')
+const image = require('./image')
+const feed = require('./feed')
+const tag = require('./tag')
+const refer = require('./refer')
+const topic = require('./topic')
+const comment = require('./comment')
+const info = require('./info')
+
+router.use('/auth', auth)
+router.use('/image', image)
+router.use('/feed', feed)
+router.use('/tag', tag)
+router.use('/refer', refer)
+router.use('/topic', topic)
+router.use('/comment', comment)
+router.use('/info', info)
+
+module.exports = router
