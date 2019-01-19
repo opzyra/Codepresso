@@ -1,5 +1,6 @@
 import auth from '../../api/auth'
 import jwtDecode from 'jwt-decode'
+import VueCookie from 'vue-cookie'
 
 const state = {
   token: null,
@@ -17,7 +18,7 @@ const getters = {
   }
 }
 const mutations = {
-  LOGIN (state, {token}) {
+  LOGIN (state, { token }) {
     if (!token) return
     const jwt = jwtDecode(token)
 
@@ -26,18 +27,18 @@ const mutations = {
 
     if (parseInt(exp) > now) {
       state.token = token
-      localStorage.token = token
+      VueCookie.set('token', token)
       auth.setAuthInHeader(token)
       state.role = jwt.role
     } else {
       state.token = null
-      delete localStorage.token
+      VueCookie.delete('token')
       auth.setAuthInHeader(null)
     }
   },
   LOGOUT (state) {
     state.token = null
-    delete localStorage.token
+    VueCookie.delete('token')
     auth.setAuthInHeader(null)
   }
 }

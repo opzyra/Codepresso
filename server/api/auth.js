@@ -4,8 +4,7 @@ const { aes } = require('../middlewares/crypto')
 
 const login = async (req, res, next) => {
 
-  passport.authenticate('login', async (err, user, info) => {     
-    
+  passport.authenticate('login', async (err, user, info) => {
     try {
       if(err || !user){
         const error = new Error('An Error occured')
@@ -26,7 +25,7 @@ const naver = passport.authenticate('naver')
 
 const naverCallback = passport.authenticate('naver', {
   //successRedirect: '/auth/token',
-  failureRedirect: '/'
+  failureRedirect: '/login?er=f'
 })
 
 const github = passport.authenticate('github')
@@ -55,13 +54,8 @@ const googleCallback = passport.authenticate('google', {
 const token = (req, res) => {
   const user = req.user
   const token = authService.signToken(user.email, user.name, user.role)
-  const encrypted = aes.encrypted(token).toString()
-  return res.redirect(`https://codepresso.net/login?tk=${encodeURIComponent(encrypted)}`)
-}
-
-const tokenPublish = (req, res, next) => {
-  let { token } = req.body
-  return res.json({ token: aes.decrypted(decodeURIComponent(token)) })
+  res.cookie('token', token, { expires: new Date(Date.now() + 24 * 60 * 60 * 1000), secure: true })
+  return res.redirect(`https://codepresso.net/login?tk=ok`)
 }
 
 const sign = async (req, res, next) => {

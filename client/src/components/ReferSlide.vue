@@ -20,13 +20,9 @@
 </template>
 
 <script>
-import VueSimpleSuggest from 'vue-simple-suggest'
 import refer from '../api/refer'
 
 export default {
-  components: {
-    VueSimpleSuggest
-  },
   props: ['refers', 'simplemde'],
   data () {
     return {
@@ -41,14 +37,15 @@ export default {
       this.$emit('closePanel', { refers: this.refers })
     },
     referInsert () {
+      // eslint-disable-next-line
       const regex = /^(((http(s?))\:\/\/)?)([0-9a-zA-Z\-]+\.)+[a-zA-Z]{2,6}(\:[0-9]+)?(\/\S*)?/
       if (this.url === '') {
-        this.$swal({title: '도메인 오류', text: '참고 URL을 입력해주세요.', type: 'error', confirmButtonText: '확인'})
+        this.$swal({ title: '도메인 오류', text: '참고 URL을 입력해주세요.', type: 'error', confirmButtonText: '확인' })
         return
       }
 
       if (!regex.test(this.url)) {
-        this.$swal({title: '도메인 오류', text: 'URL의 형태가 올바르지 않습니다.', type: 'error', confirmButtonText: '확인'})
+        this.$swal({ title: '도메인 오류', text: 'URL의 형태가 올바르지 않습니다.', type: 'error', confirmButtonText: '확인' })
         return
       }
 

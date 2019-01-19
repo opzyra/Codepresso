@@ -32,14 +32,10 @@
 </template>
 
 <script>
-import VueSimpleSuggest from 'vue-simple-suggest'
 import tag from '../api/tag'
 import feed from '../api/feed'
 
 export default {
-  components: {
-    VueSimpleSuggest
-  },
   props: ['simplemde', 'tags', 'description', 'access', 'refers', 'title', 'contents'],
   data () {
     return {
@@ -76,7 +72,7 @@ export default {
         })
       } else {
         this.tag = ''
-        this.$swal({title: '중복 태그', text: '이미 등록된 태그 입니다.', type: 'error', confirmButtonText: '확인'})
+        this.$swal({ title: '중복 태그', text: '이미 등록된 태그 입니다.', type: 'error', confirmButtonText: '확인' })
       }
     },
     uploadClick () {
@@ -86,26 +82,26 @@ export default {
       const { title, contents, accessProps, descriptionProps, tags, refers } = this
 
       if (title === '') {
-        this.$swal({title: '필드 오류', text: '제목을 입력해주세요.', type: 'error', confirmButtonText: '확인'})
+        this.$swal({ title: '필드 오류', text: '제목을 입력해주세요.', type: 'error', confirmButtonText: '확인' })
         return
       }
 
       if (contents === '') {
-        this.$swal({title: '필드 오류', text: '내용을 입력해주세요.', type: 'error', confirmButtonText: '확인'})
+        this.$swal({ title: '필드 오류', text: '내용을 입력해주세요.', type: 'error', confirmButtonText: '확인' })
         return
       }
 
       if (!this.$route.params.idx) {
         feed.createOne({ title, contents, access: accessProps, description: descriptionProps, tags, refers })
           .then(res => {
-            this.$swal({title: '작성 완료', text: '피드가 작성되었습니다.', type: 'success', confirmButtonText: '확인'}).then(sres => {
+            this.$swal({ title: '작성 완료', text: '피드가 작성되었습니다.', type: 'success', confirmButtonText: '확인' }).then(sres => {
               this.$router.push(`/devlog/feed/${res.idx}`)
             })
           })
       } else {
         feed.updateOne({ idx: this.$route.params.idx, title, contents, access: accessProps, description: descriptionProps, tags, refers })
           .then(res => {
-            this.$swal({title: '수정 완료', text: '피드가 수정되었습니다.', type: 'success', confirmButtonText: '확인'}).then(sres => {
+            this.$swal({ title: '수정 완료', text: '피드가 수정되었습니다.', type: 'success', confirmButtonText: '확인' }).then(sres => {
               this.$router.push(`/devlog/feed/${res.idx}`)
             })
           })

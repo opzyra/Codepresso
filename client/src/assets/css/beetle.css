@@ -612,6 +612,10 @@ nav ul.sub-menu > li:last-child > a {
   opacity: 0;
 }
 
+.owl-item .overlay {
+  width: 100%;
+}
+
 .caption,
 .caption-mockup {
   width: 100%;
@@ -3985,28 +3989,28 @@ src:url("../fonts/lineicon.eot?#iefix") format("embedded-opentype"),
 
 .iphone-mockup,
 .iphone-mockup.black {
-  background: url("/static/img/mockups/iphone-black.svg") no-repeat;
+  background: url("/img/mockups/iphone-black.svg") no-repeat;
 }
 
 .no-svg .iphone-mockup,
 .no-svg .iphone-mockup.black {
-  background: url("/static/img/mockups/iphone-black.png") no-repeat;
+  background: url("/img/mockups/iphone-black.png") no-repeat;
 }
 
 .iphone-mockup.white {
-  background: url("/static/img/mockups/iphone-white.svg") no-repeat;
+  background: url("/img/mockups/iphone-white.svg") no-repeat;
 }
 
 .no-svg .iphone-mockup.white {
-  background: url("/static/img/mockups/iphone-white.png") no-repeat;
+  background: url("/img/mockups/iphone-white.png") no-repeat;
 }
 
 .iphone-mockup.grey {
-  background: url("/static/img/mockups/iphone-grey.svg") no-repeat;
+  background: url("/img/mockups/iphone-grey.svg") no-repeat;
 }
 
 .no-svg .iphone-mockup.grey {
-  background: url("/static/img/mockups/iphone-grey.png") no-repeat;
+  background: url("/img/mockups/iphone-grey.png") no-repeat;
 }
 
 .iphone-mockup,
@@ -4058,28 +4062,28 @@ src:url("../fonts/lineicon.eot?#iefix") format("embedded-opentype"),
 
 .ipad-mockup,
 .ipad-mockup.black {
-  background: url("/static/img/mockups/ipad-black.svg") no-repeat;
+  background: url("/img/mockups/ipad-black.svg") no-repeat;
 }
 
 .no-svg .ipad-mockup,
 .no-svg .ipad-mockup.black {
-  background: url("/static/img/mockups/ipad-black.png") no-repeat;
+  background: url("/img/mockups/ipad-black.png") no-repeat;
 }
 
 .ipad-mockup.white {
-  background: url("/static/img/mockups/ipad-white.svg") no-repeat;
+  background: url("/img/mockups/ipad-white.svg") no-repeat;
 }
 
 .no-svg .ipad-mockup.white {
-  background: url("/static/img/mockups/ipad-white.png") no-repeat;
+  background: url("/img/mockups/ipad-white.png") no-repeat;
 }
 
 .ipad-mockup.grey {
-  background: url("/static/img/mockups/ipad-grey.svg") no-repeat;
+  background: url("/img/mockups/ipad-grey.svg") no-repeat;
 }
 
 .no-svg .ipad-mockup.grey {
-  background: url("/static/img/mockups/ipad-grey.png") no-repeat;
+  background: url("/img/mockups/ipad-grey.png") no-repeat;
 }
 
 .ipad-mockup,
@@ -4122,12 +4126,12 @@ src:url("../fonts/lineicon.eot?#iefix") format("embedded-opentype"),
   left: 50%;
   margin-left: -315px;
   width: 630px;
-  background: url("/static/img/mockups/desktop.svg") no-repeat;
+  background: url("/img/mockups/desktop.svg") no-repeat;
   background-size: 630px 462px !important;
 }
 
 .no-svg .desktop-mockup {
-  background: url("/static/img/mockups/desktop.png") no-repeat;
+  background: url("/img/mockups/desktop.png") no-repeat;
 }
 
 .desktop-mockup,
@@ -4403,7 +4407,7 @@ src:url("../fonts/lineicon.eot?#iefix") format("embedded-opentype"),
 
 .owl-item.loading {
   min-height: 150px;
-  background: url(/static/img/AjaxLoader.gif) no-repeat center center;
+  background: url(/img/AjaxLoader.gif) no-repeat center center;
 }
 
 .owl-theme .owl-controls .owl-buttons div {
@@ -4552,7 +4556,7 @@ src:url("../fonts/lineicon.eot?#iefix") format("embedded-opentype"),
 
 /* mouse grab icon */
 .grabbing {
-  cursor: /static/img/grabbing.png) 8 8, move;
+  cursor: /img/grabbing.png) 8 8, move;
 }
 
 /* fix */

@@ -101,7 +101,7 @@ export default {
       return this.queryResult.map(v => v.title)
     },
     closePanel () {
-      this.$emit('closePanel', {feeds: this.feeds})
+      this.$emit('closePanel', { feeds: this.feeds })
     },
     select (param) {
       if (param) {

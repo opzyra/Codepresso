@@ -9,26 +9,20 @@
               <div class="column three">
                 <figure>
                   <img v-if="item.thumbnail != null" :src="item.thumbnail" :alt="item.title">
-                  <img v-else src="/static/img/default_thumbnail.png" :alt="item.title">
+                  <img v-else src="/img/default_thumbnail.png" :alt="item.title">
                 </figure>
               </div>
               <div class="column nine last">
-                <h2><a v-text="item.title" @click="moveTopicDetail(item.idx)"></a></h2>
-                <h5 class="meta-post"><time>{{ item.regDate | moment('YYYY. MM. DD HH:mm:ss') }}</time> - Codepresso Topic Written By <a href="https://github.com/opzyra" target="_blank">opzyra</a></h5>
+                <h2><router-link :to="`/devlog/topic/${item.idx}`" tag="a" v-text="item.title"></router-link></h2>
+                <h5 class="meta-post"><time v-text="dateFormat(item.regDate)"></time> - Codepresso Topic Written By <a href="https://github.com/opzyra" target="_blank">opzyra</a></h5>
                 <p v-text="item.description"></p>
               </div>
             </article>
 
             <figure id="pagination" class="pagination">
-              <scaling-squares-spinner
-                :animation-duration="1250"
-                :size="30"
-                color="#4158d0"
-                :style="style"
-                v-if="loading"
-              />
+
             </figure>
-          </div><!-- column nine -->
+          </div>
           <aside role="complementary" class="sidebar column three last">
             <div class="widget widget_search">
               <form role="search">
@@ -40,7 +34,7 @@
               <h4>About the DevLog</h4>
               <div class="textwidget">
                 개발에 대한 모든 자료, 생각을 정리하는 기록저장소입니다.
-              </div><!-- la class="textwidget" è forse generata automaticamente da wp -->
+              </div>
             </div>
             <div class="widget">
               <h4>Recent Feeds</h4>
@@ -71,16 +65,16 @@
 
 <script>
 import InfiniteLoading from 'vue-infinite-loading'
-import { ScalingSquaresSpinner } from 'epic-spinners'
 import { mapGetters } from 'vuex'
 
 import topic from '../api/topic'
 import feed from '../api/feed'
 
+import moment from 'moment'
+
 export default {
   components: {
-    InfiniteLoading,
-    ScalingSquaresSpinner
+    InfiniteLoading
   },
   data () {
     return {
@@ -110,9 +104,6 @@ export default {
     })
   },
   methods: {
-    moveTopicDetail (idx) {
-      this.$router.push(`/devlog/topic/${idx}`)
-    },
     infiniteHandler ($state) {
       this.loading = true
       let limit = this.page * 8
@@ -132,6 +123,9 @@ export default {
       }).catch(() => {
         this.loading = false
       })
+    },
+    dateFormat (date) {
+      return moment(date).format('YYYY. MM. DD HH:mm:ss')
     }
   }
 }

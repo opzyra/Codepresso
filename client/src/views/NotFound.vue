@@ -1,6 +1,6 @@
 <template>
   <div id="notfound">
-    <link href="/static/css/not-found.css" rel="stylesheet" />
+    <link href="/css/not-found.css" rel="stylesheet" />
     <div class="notfound">
       <div class="notfound-404">
         <h3>Oops! Page not found</h3>
@@ -13,7 +13,45 @@
 
 <script>
 export default {
+  metaInfo () {
+    return {
+      title: this.meta.title,
+      meta: [
+        { property: 'keywords', content: this.meta.keywords },
+        { property: 'description', content: this.description },
+        { property: 'author', content: this.meta.url },
 
+        { property: 'og:title', content: this.meta.title },
+        { property: 'og:site_name', content: 'Codepresso' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: this.meta.url },
+        { property: 'og:image', content: this.meta.image },
+        { property: 'og:description', content: this.meta.description },
+
+        { name: 'twitter:card', content: 'summary' },
+        { name: 'twitter:site', content: this.meta.url },
+        { name: 'twitter:title', content: this.meta.title },
+        { name: 'twitter:description', content: this.meta.description },
+        { name: 'twitter:creator', content: '@opzyra' },
+        { name: 'twitter:image:src', content: this.meta.image },
+
+        { itemprop: 'name', content: this.meta.title },
+        { itemprop: 'description', content: this.meta.description },
+        { itemprop: 'image', content: this.meta.image }
+      ]
+    }
+  },
+  data () {
+    return {
+      meta: {
+        title: 'Codepresso',
+        keywords: '웹개발, 프론트엔드, 백엔드, 개발자 블로그, 포트폴리오',
+        description: 'WEB Developer HYUN HO - A place to study solid code like espresso',
+        url: 'https://codepresso.net',
+        image: 'https://codepresso.net/img/og.png'
+      }
+    }
+  }
 }
 </script>
 

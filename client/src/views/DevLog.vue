@@ -2,7 +2,7 @@
   <div class="devlog">
     <div id="intro-wrap">
       <div id="intro" class="preload darken">
-          <div class="intro-item" style="background-image: url(/static/img/warp-02.png);">
+          <div class="intro-item" style="background-image: url(/img/warp-02.png);">
             <div class="caption">
               <h2>DevLog</h2>
               <p>개발과 관련된 다양한 생각을 기록하는 공간</p>
@@ -18,8 +18,6 @@
 </template>
 
 <script>
-import InfiniteLoading from 'vue-infinite-loading'
-import { ScalingSquaresSpinner } from 'epic-spinners'
 import { mapGetters } from 'vuex'
 import TopicList from '../components/TopicList'
 import topic from '../api/topic'
@@ -27,9 +25,35 @@ import feed from '../api/feed'
 
 export default {
   components: {
-    InfiniteLoading,
-    ScalingSquaresSpinner,
     TopicList
+  },
+  metaInfo () {
+    return {
+      title: this.meta.title,
+      meta: [
+        { property: 'keywords', content: this.meta.keywords },
+        { property: 'description', content: this.description },
+        { property: 'author', content: this.meta.url },
+
+        { property: 'og:title', content: this.meta.title },
+        { property: 'og:site_name', content: 'Codepresso' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: this.meta.url },
+        { property: 'og:image', content: this.meta.image },
+        { property: 'og:description', content: this.meta.description },
+
+        { name: 'twitter:card', content: 'summary' },
+        { name: 'twitter:site', content: this.meta.url },
+        { name: 'twitter:title', content: this.meta.title },
+        { name: 'twitter:description', content: this.meta.description },
+        { name: 'twitter:creator', content: '@opzyra' },
+        { name: 'twitter:image:src', content: this.meta.image },
+
+        { itemprop: 'name', content: this.meta.title },
+        { itemprop: 'description', content: this.meta.description },
+        { itemprop: 'image', content: this.meta.image }
+      ]
+    }
   },
   data () {
     return {
@@ -42,6 +66,13 @@ export default {
       style: {
         margin: '0 auto',
         marginTop: '30px'
+      },
+      meta: {
+        title: 'Codepresso | DevLog',
+        keywords: '웹개발, 프론트엔드, 백엔드, 개발자 블로그, 포트폴리오',
+        description: 'WEB Developer HYUN HO - A place to study solid code like espresso',
+        url: 'https://codepresso.net',
+        image: 'https://codepresso.net/img/og.png'
       }
     }
   },

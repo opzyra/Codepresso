@@ -2,7 +2,6 @@ const router = require('express').Router()
 const auth = require('../api/auth')
 
 router.post('/email',auth.login)
-router.post('/token', auth.tokenPublish)
 
 router.get('/github', auth.github)
 router.get('/github/callback', auth.githubCallback, auth.token)

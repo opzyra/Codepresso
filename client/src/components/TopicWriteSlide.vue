@@ -10,7 +10,7 @@
       <input type="file" name="thumbnail" ref="thumbnail" style="visibility:hidden;" @change="thumbnailUpload">
       <div class="thumbnail-preview">
         <img :src="thumbnailProps">
-        <img src="/static/img/default-img.png" v-if="thumbnailProps === null" style="width: 165px;">
+        <img v-lazy="`/img/default-img.png`" v-if="thumbnailProps === null" style="width: 165px;">
       </div>
     </div>
 
@@ -77,38 +77,38 @@ export default {
         let img = 'https://codepresso.net' + data.path
         this.thumbnailProps = img
       }).catch(() => {
-        this.$swal({title: '서버 장애', text: '이미지 업로드에 실패하였습니다.', type: 'error', confirmButtonText: '확인'})
+        this.$swal({ title: '서버 장애', text: '이미지 업로드에 실패하였습니다.', type: 'error', confirmButtonText: '확인' })
       })
     },
     writeTopic () {
       const { title, contents, thumbnailProps, accessProps, descriptionProps, feeds } = this
 
       if (title === '') {
-        this.$swal({title: '필드 오류', text: '제목을 입력해주세요.', type: 'error', confirmButtonText: '확인'})
+        this.$swal({ title: '필드 오류', text: '제목을 입력해주세요.', type: 'error', confirmButtonText: '확인' })
         return
       }
 
       if (contents === '') {
-        this.$swal({title: '필드 오류', text: '내용을 입력해주세요.', type: 'error', confirmButtonText: '확인'})
+        this.$swal({ title: '필드 오류', text: '내용을 입력해주세요.', type: 'error', confirmButtonText: '확인' })
         return
       }
 
       if (descriptionProps === '') {
-        this.$swal({title: '필드 오류', text: '간단 설명을 입력해주세요.', type: 'error', confirmButtonText: '확인'})
+        this.$swal({ title: '필드 오류', text: '간단 설명을 입력해주세요.', type: 'error', confirmButtonText: '확인' })
         return
       }
 
       if (!this.$route.params.idx) {
         topic.createOne({ title, contents, thumbnail: thumbnailProps, access: accessProps, description: descriptionProps, feeds })
           .then(res => {
-            this.$swal({title: '작성 완료', text: '토픽이 작성되었습니다.', type: 'success', confirmButtonText: '확인'}).then(sres => {
+            this.$swal({ title: '작성 완료', text: '토픽이 작성되었습니다.', type: 'success', confirmButtonText: '확인' }).then(sres => {
               this.$router.push(`/devlog/topic/${res.idx}`)
             })
           }).catch()
       } else {
         topic.updateOne({ idx: this.$route.params.idx, title, contents, thumbnail: thumbnailProps, access: accessProps, description: descriptionProps, feeds })
           .then(res => {
-            this.$swal({title: '수정 완료', text: '토픽이 수정되었습니다.', type: 'success', confirmButtonText: '확인'}).then(sres => {
+            this.$swal({ title: '수정 완료', text: '토픽이 수정되었습니다.', type: 'success', confirmButtonText: '확인' }).then(sres => {
               this.$router.push(`/devlog/topic/${res.idx}`)
             })
           }).catch()

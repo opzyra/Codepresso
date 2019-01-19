@@ -7,11 +7,11 @@ const onUnauthorized = () => {
 }
 
 const request = {
-  domain: '/api',
+  domain: 'https://codepresso.net/api',
   get (path) {
     return axios.get(`${this.domain + path}`)
-      .catch(({response}) => {
-        const {status} = response
+      .catch(({ response }) => {
+        const { status } = response
         if (status === Unauthorized) return onUnauthorized()
         throw Error(response)
       })

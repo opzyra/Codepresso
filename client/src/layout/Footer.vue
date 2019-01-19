@@ -30,8 +30,7 @@
         <section id="bottom-footer">
           <p class="keep-left">&copy; 2018 <a href="https://codepresso.net/" alt="codepresso">Codepresso</a>. All Rights Reserved.</p>
           <p class="keep-right">
-            <router-link to="/login" tag="a" v-if="!role">Sign In</router-link>
-            <a v-else @click="signOut">Sign Out</a>
+            <router-link tag="a" to="/devlog/feed/1">Making Log</router-link>
           </p>
         </section><!-- bottom-footer -->
       </div><!-- row-beetle-content -->
@@ -40,21 +39,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
-
 export default {
-  computed: {
-    ...mapGetters('auth', ['role'])
-  },
-  methods: {
-    ...mapMutations('auth', ['LOGOUT']),
-    signOut () {
-      this.LOGOUT()
-      this.$swal({title: '로그아웃', text: '세션이 종료되었습니다.', type: 'success', confirmButtonText: '확인'}).then(sres => {
-        location.href = '/'
-      })
-    }
-  }
 }
 </script>
 

@@ -2,13 +2,14 @@
   <div>
     <div class="post-area clear-after">
       <article class="article" role="main">
-        <h5 class="meta-post"><time>{{ feed.regDate | moment('YYYY. MM. DD HH:mm:ss') }}</time> - Codepresso Feed Written By <a href="https://github.com/opzyra" target="_blank">opzyra</a></h5>
+        <h5 class="meta-post"><time v-text="dateFormat(feed.regDate)"></time> - Codepresso Feed Written By <a href="https://github.com/opzyra" target="_blank">opzyra</a></h5>
         <h1 v-text="feed.title"></h1>
         <div class="update-btn" v-if="role === 'ROLE_ADMIN'">
           <router-link :to="`/devlog/feed/editor/${idx}`" tag="a" class="button transparent blue xs m-r-0"><i class="mdi mdi-square-edit-outline"></i>수정</router-link>
         </div>
         <viewer
         :value="feed.contents"
+        @load="onEditorLoad"
         />
       </article>
 
@@ -30,7 +31,10 @@
       <h4>Reference Documents</h4>
       <carousel :autoplay="true" :nav="false" ref="owl">
         <div class="item" v-for="(item, idx) in feed.refers" :key="idx">
-          <figure><img :src="item.image" :alt="item.title" class="owl-item-image"></figure>
+          <figure>
+            <img v-if="item.image != ''" :src="item.image" :alt="item.title" class="owl-item-image">
+            <img v-else src="/img/default_thumbnail.png" :alt="item.title" class="owl-item-image">
+          </figure>
           <a class="overlay" :href="item.url" target="_blank">
             <div class="overlay-content">
               <div class="post-type"><i class="icon icon-search"></i></div>
@@ -63,12 +67,12 @@
         <li class="comment" v-for="(item, idx) in comment" :key="idx">
           <div class="single-comment">
             <div class="comment-author">
-              <img v-if="item.account.avatar === null || item.account.avatar === ''" src="/static/img/default_thumbnail.png" class="avatar" :alt="item.account.name">
+              <img v-if="item.account.avatar === null || item.account.avatar === ''" src="/img/default_thumbnail.png" class="avatar" :alt="item.account.name">
               <img v-else :src="item.account.avatar" class="avatar" :alt="item.account.name">
               <cite><a v-text="item.account.name"></a></cite>
             </div>
             <div class="comment-meta">
-              <time>{{item.regDate | moment('YYYY. MM. DD HH:mm:ss')}}</time>
+              <time v-text="dateFormat(item.regDate)"></time>
               <span v-if="commentCommand(item.account.email)">
                 <a v-if="writerCheck(item.account.email)" class="reply" @click="editComment(item.idx)"><i class="mdi mdi-square-edit-outline"></i></a>
                 <a class="reply" @click="deleteComment(item.idx)"><i class="mdi mdi-delete-empty"></i></a>
@@ -101,21 +105,60 @@ import { mapGetters } from 'vuex'
 
 import comment from '../api/comment'
 import { centerOverlay } from '../assets'
+
+import moment from 'moment'
+
 export default {
   components: {
     carousel,
     Viewer
+  },
+  metaInfo () {
+    return {
+      title: this.meta.title,
+      meta: [
+        { property: 'keywords', content: this.meta.keywords },
+        { property: 'description', content: this.description },
+        { property: 'author', content: this.meta.url },
+
+        { property: 'og:title', content: this.meta.title },
+        { property: 'og:site_name', content: 'Codepresso' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: this.meta.url },
+        { property: 'og:image', content: this.meta.image },
+        { property: 'og:description', content: this.meta.description },
+
+        { name: 'twitter:card', content: 'summary' },
+        { name: 'twitter:site', content: this.meta.url },
+        { name: 'twitter:title', content: this.meta.title },
+        { name: 'twitter:description', content: this.meta.description },
+        { name: 'twitter:creator', content: '@opzyra' },
+        { name: 'twitter:image:src', content: this.meta.image },
+
+        { itemprop: 'name', content: this.meta.title },
+        { itemprop: 'description', content: this.meta.description },
+        { itemprop: 'image', content: this.meta.image }
+      ]
+    }
   },
   props: ['feed', 'idx'],
   data () {
     return {
       contents: '',
       commentCount: 0,
-      comment: []
+      comment: [],
+      meta: {
+        title: 'Codepresso | DevLog',
+        keywords: '웹개발, 프론트엔드, 백엔드, 개발자 블로그, 포트폴리오',
+        description: 'WEB Developer HYUN HO - A place to study solid code like espresso',
+        url: 'https://codepresso.net',
+        image: 'https://codepresso.net/img/og.png'
+      }
     }
   },
   created () {
     this.fetchComment()
+    this.setMeta()
   },
   mounted () {
     centerOverlay()
@@ -131,10 +174,21 @@ export default {
         this.comment = res.rows
       })
     },
+    setMeta () {
+      this.meta.title = this.feed.title
+      this.meta.description = this.feed.description
+      this.meta.keywords = (() => {
+        let keywords = []
+        this.feed.tags.forEach(e => {
+          keywords.push(e.name)
+        })
+        return keywords.toString()
+      })()
+    },
     writeComment () {
       let { contents } = this
       if (contents === '') {
-        this.$swal({title: '필드 오류', text: '댓글 내용을 입력해주세요.', type: 'error', confirmButtonText: '확인'})
+        this.$swal({ title: '필드 오류', text: '댓글 내용을 입력해주세요.', type: 'error', confirmButtonText: '확인' })
         return
       }
       // if (this.xssCheck(contents)) {
@@ -158,11 +212,17 @@ export default {
       return rs
     },
     xssClean (data) {
+      // eslint-disable-next-line
       return data.replace(/\&/g, '&amp;')
+        // eslint-disable-next-line
         .replace(/\</g, '&lt;')
+        // eslint-disable-next-line
         .replace(/\>/g, '&gt;')
+        // eslint-disable-next-line
         .replace(/\"/g, '&quot;')
+        // eslint-disable-next-line
         .replace(/\'/g, '&#x27')
+        // eslint-disable-next-line
         .replace(/\//g, '&#x2F')
     },
     multiLineReplace (data) {
@@ -198,7 +258,7 @@ export default {
     },
     updateComment (idx) {
       let contents = document.querySelector(`.t${idx}`).value
-      comment.updateOne({idx, contents}).then(res => {
+      comment.updateOne({ idx, contents }).then(res => {
         this.displayEditMode()
         this.fetchComment()
       }).catch(() => {
@@ -223,6 +283,25 @@ export default {
           })
         }
       })
+    },
+    onEditorLoad () {
+      setTimeout(() => {
+        const a = document.querySelector('.tui-editor-contents').querySelectorAll('a')
+        a.forEach(e => {
+          let pathName = e.pathname
+          if (pathName.indexOf('/devlog/feed/') === 0) {
+            e.setAttribute('href', 'javascript:void(0)')
+            e.addEventListener('click', () => {
+              this.$router.push(pathName)
+            })
+          } else {
+            e.setAttribute('target', '_blank')
+          }
+        })
+      }, 500)
+    },
+    dateFormat (date) {
+      return moment(date).format('YYYY. MM. DD HH:mm:ss')
     }
   }
 }

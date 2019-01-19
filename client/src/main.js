@@ -1,13 +1,15 @@
-import '@babel/polyfill'
 import 'es6-promise/auto'
 import 'event-source-polyfill'
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueLazyload from 'vue-lazyload'
 import App from './App'
 
 import VueScrollTo from 'vue-scrollto'
 import VueSweetalert2 from 'vue-sweetalert2'
+import Meta from 'vue-meta'
+import VueCookie from 'vue-cookie'
 
 import routes from './router'
 import store from './store'
@@ -16,7 +18,7 @@ import { init } from './assets'
 import Transitions from 'vue2-transitions'
 import VueSimplemde from 'vue-simplemde'
 import { VueSlideoutPanel } from 'vue2-slideout-panel'
-import Moment from 'vue-moment'
+
 import ToggleButton from 'vue-js-toggle-button'
 import VueTextareaAutosize from 'vue-textarea-autosize'
 
@@ -26,7 +28,6 @@ import TopicWriteSlide from './components/TopicWriteSlide.vue'
 import FeedWriteSlide from './components/FeedWriteSlide.vue'
 import ReferSlide from './components/ReferSlide.vue'
 
-import './assets/css/materialdesignicons.min.css'
 import './assets/css/nucleo-icons.css'
 import './assets/css/util.css'
 
@@ -35,6 +36,11 @@ import './assets/css/beetle.css'
 
 import 'simplemde/dist/simplemde.min.css'
 import 'vue-simple-suggest/dist/styles.css'
+
+import './assets/css/tui-editor-contents.css'
+
+import 'github-markdown-css'
+import './assets/css/atom-one-light.css'
 
 Vue.component('slideout-panel', VueSlideoutPanel)
 Vue.component('temp-slide', TempSlide)
@@ -46,11 +52,13 @@ Vue.component('refer-slide', ReferSlide)
 Vue.use(VueRouter)
 Vue.use(VueScrollTo)
 Vue.use(VueSweetalert2)
-Vue.use(Moment)
 Vue.use(VueSimplemde)
 Vue.use(ToggleButton)
 Vue.use(Transitions)
 Vue.use(VueTextareaAutosize)
+Vue.use(Meta)
+Vue.use(VueLazyload)
+Vue.use(VueCookie)
 
 Vue.config.productionTip = false
 let firstLoading = true
@@ -89,9 +97,7 @@ router.afterEach((to, from) => {
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
   router,
   store,
-  components: { App },
-  template: '<App/>'
-})
+  render: h => h(App)
+}).$mount('#app')

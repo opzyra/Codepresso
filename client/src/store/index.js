@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 
 import main from './modules/main'
 import auth from './modules/auth'
+import VueCookie from 'vue-cookie'
 
 Vue.use(Vuex)
 
@@ -13,7 +14,7 @@ const store = new Vuex.Store({
   }
 })
 
-const { token } = localStorage
+const token = VueCookie.get('token')
 store.commit('auth/LOGIN', { token })
 
 export default store

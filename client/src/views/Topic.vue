@@ -2,7 +2,7 @@
   <div>
     <div id="intro-wrap">
       <div id="intro" class="preload darken">
-        <div class="intro-item" style="background-image: url(/static/img/warp-02.png);">
+        <div class="intro-item" style="background-image: url(/img/warp-02.png);">
           <div class="caption">
             <h2>DevLog</h2>
             <p>개발과 관련된 다양한 생각을 기록하는 공간</p>

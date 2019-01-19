@@ -2,7 +2,7 @@
   <div>
     <div class="post-area clear-after">
       <article class="article" role="main">
-        <h5 class="meta-post"><time>{{ topic.regDate | moment('YYYY. MM. DD HH:mm:ss') }}</time> - Codepresso Topic Written By <a href="https://github.com/opzyra" target="_blank">opzyra</a></h5>
+        <h5 class="meta-post"><time v-text="dateFormat(topic.regDate)"></time> - Codepresso Topic Written By <a href="https://github.com/opzyra" target="_blank">opzyra</a></h5>
         <h1 v-text="topic.title"></h1>
         <div class="update-btn" v-if="role === 'ROLE_ADMIN'">
           <router-link :to="`/devlog/topic/editor/${idx}`" tag="a" class="button transparent blue xs"><i class="mdi mdi-square-edit-outline"></i>수정</router-link>
@@ -23,15 +23,64 @@
 import { Viewer } from '@toast-ui/vue-editor'
 import { mapGetters } from 'vuex'
 
+import moment from 'moment'
+
 export default {
   components: {
     Viewer
   },
+  metaInfo () {
+    return {
+      title: this.meta.title,
+      meta: [
+        { property: 'keywords', content: this.meta.keywords },
+        { property: 'description', content: this.description },
+        { property: 'author', content: this.meta.url },
+
+        { property: 'og:title', content: this.meta.title },
+        { property: 'og:site_name', content: 'Codepresso' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: this.meta.url },
+        { property: 'og:image', content: this.meta.image },
+        { property: 'og:description', content: this.meta.description },
+
+        { name: 'twitter:card', content: 'summary' },
+        { name: 'twitter:site', content: this.meta.url },
+        { name: 'twitter:title', content: this.meta.title },
+        { name: 'twitter:description', content: this.meta.description },
+        { name: 'twitter:creator', content: '@opzyra' },
+        { name: 'twitter:image:src', content: this.meta.image },
+
+        { itemprop: 'name', content: this.meta.title },
+        { itemprop: 'description', content: this.meta.description },
+        { itemprop: 'image', content: this.meta.image }
+      ]
+    }
+  },
   props: ['topic', 'idx'],
+  data () {
+    return {
+      meta: {
+        title: 'Codepresso | DevLog',
+        keywords: '웹개발, 프론트엔드, 백엔드, 개발자 블로그, 포트폴리오',
+        description: 'WEB Developer HYUN HO - A place to study solid code like espresso',
+        url: 'https://codepresso.net',
+        image: 'https://codepresso.net/img/og.png'
+      }
+    }
+  },
   computed: {
     ...mapGetters('auth', ['role'])
   },
+  created () {
+    this.setMeta()
+  },
   methods: {
+    setMeta () {
+      this.meta.title = this.topic.title
+      this.meta.description = this.topic.description
+      this.meta.keywords = this.topic.title
+    },
     convertThumbnail (path) {
       return path.replace('thumb', 'image')
     },
@@ -50,6 +99,9 @@ export default {
           }
         })
       }, 500)
+    },
+    dateFormat (date) {
+      return moment(date).format('YYYY. MM. DD HH:mm:ss')
     }
   }
 }

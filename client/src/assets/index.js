@@ -403,15 +403,15 @@ export const init = () => {
 
             if (header.hasClass('skrollable-after')) {
 
-                $('.beetle-logo').attr('src', '/static/img/black.png');
+                $('.beetle-logo').attr('src', '/img/black.png');
 
             } else {
 
-                $('.beetle-logo').attr('src', '/static/img/white.png');
+                $('.beetle-logo').attr('src', '/img/white.png');
             }
 
         } else {
-            $('.beetle-logo').attr('src', '/static/img/black.png');
+            $('.beetle-logo').attr('src', '/img/black.png');
         }
 
     });
@@ -1192,22 +1192,14 @@ export const init = () => {
 
     }
 
-
-    /* Initialize FluidVids.js */
-
-    Fluidvids.init({
-        selector: 'iframe',
-        players: ['www.youtube.com', 'player.vimeo.com']
-    });
-
     if (!body.hasClass('mobile')) {
         if($('header').hasClass('fixed-header')){
-            $('.beetle-logo').attr('src', '/static/img/black.png');
+            $('.beetle-logo').attr('src', '/img/black.png');
         } else {
-            $('.beetle-logo').attr('src', '/static/img/white.png');
+            $('.beetle-logo').attr('src', '/img/white.png');
         }
     } else {
-        $('.beetle-logo').attr('src', '/static/img/black.png');
+        $('.beetle-logo').attr('src', '/img/black.png');
     }
 
     $('.js-tilt').tilt({

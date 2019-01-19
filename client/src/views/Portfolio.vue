@@ -2,7 +2,7 @@
   <div>
     <div id="intro-wrap">
       <div id="intro" class="preload darken more-button">
-          <div class="intro-item" style="background-image: url(/static/img/warp-03.png);">
+          <div class="intro-item" style="background-image: url(/img/warp-03.png);">
             <div class="caption">
               <h2>Portfolio</h2>
               <p>다양한 기술을 공부하며 개발한 애플리케이션</p>
@@ -25,7 +25,7 @@
       <section class="row-beetle" style="background-color: #cec8bc">
         <div class="row-beetle-content buffer even clear-after">
           <div class="column four centertxt">
-            <img src="/static/img/java.png" class="img-rounded img-stack">
+            <img v-lazy="`/img/java.png`" class="img-rounded img-stack`">
             <div class="big-icon-text clear-after">
               <h4>Java</h4>
               <p class="text-s">객체에 대한 기본 개념을 DRY한 코드 구현을 위해 노력하며 리펙토링과 디자인 패턴에 많은 관심을 가지고 개발합니다.</p>
@@ -33,7 +33,7 @@
             </div>
           </div>
           <div class="column four centertxt">
-            <img src="/static/img/spring.png" class="img-rounded img-stack">
+            <img v-lazy="`/img/spring.png`" class="img-rounded img-stack`">
             <div class="big-icon-text clear-after">
               <h4>Spring</h4>
               <p class="text-s">CRUD 기반의 애플리케이션 개발을 위한 기본 환경설정을 구축하고 DI, AOP등의 Spring의 특징을 살려 개발합니다.</p>
@@ -41,7 +41,7 @@
             </div>
           </div>
           <div class="column four last centertxt">
-            <img src="/static/img/js.png" class="img-rounded img-stack">
+            <img v-lazy="`/img/js.png`" class="img-rounded img-stack`">
             <div class="big-icon-text clear-after">
               <h4>Javascript</h4>
               <p class="text-s">ES6, NodeJS, VueJS에 대한 함수형 프로그래밍에 대한 이해를 바탕으로 SPA/REST기반의 웹 애플리케이션을 개발합니다.</p>
@@ -53,10 +53,10 @@
       <section class="row-beetle section promo" id="java">
         <div class="row-beetle-content buffer even clear-after">
           <div class="side-mockup right-mockup animation">
-            <img src="/static/img/promo-1.png" class="floating" alt="">
+            <img src="/img/promo-1.png" class="floating" alt="">
           </div>
           <div class="column six">
-            <img src="/static/img/java.png" class="promo-stack">
+            <img v-lazy="`/img/java.png`" class="promo-stack">
             <h2 class="promo-title">JTalk<small>JSL연수원 내부 커뮤니티</small></h2>
             <p>연수원 팀 프로젝트로 대나무숲, 정보마당, 장터등을 구현한 커뮤니티 웹 어플리케이션입니다. 주로 프로그램 설계와 화면을 담당하여 작업했습니다.</p>
             <ul class="list-unstyled mt-4 mb-3">
@@ -86,10 +86,10 @@
       <section class="row-beetle section promo" id="spring">
         <div class="row-beetle-content buffer even clear-after">
           <div class="side-mockup right-mockup animation">
-            <img src="/static/img/promo-2.png" class="floating" alt="">
+            <img src="/img/promo-2.png" class="floating" alt="">
           </div>
           <div class="column six">
-            <img src="/static/img/spring.png" class="promo-stack">
+            <img v-lazy="`/img/spring.png`" class="promo-stack">
             <h2 class="promo-title">JABIS<small>종합학원 학생/강사 통합관리 프로그램</small></h2>
             <p>개인프로젝트로 학원의 강사와 학생 데이터를 통한 통합 관리 솔루션입니다. 현재 AWS EC2 + RDS + ELB로 배포하여 서비스 중이며 유지보수를 진행하고 있습니다.</p>
             <ul class="list-unstyled mt-4 mb-3">
@@ -119,10 +119,10 @@
       <section class="row-beetle section promo" id="js">
         <div class="row-beetle-content buffer even clear-after">
           <div class="side-mockup right-mockup animation">
-            <img src="/static/img/promo-3.png" class="floating" alt="">
+            <img src="/img/promo-3.png" class="floating" alt="">
           </div>
           <div class="column six">
-            <img src="/static/img/js.png" class="promo-stack">
+            <img v-lazy="`/img/js.png`" class="promo-stack">
             <h2 class="promo-title">Codepresso<small>포트폴리오 및 블로그</small></h2>
             <p>개인프로젝트로 자료 정리 목적의 블로그와 포트폴리오 랜딩페이지를 겸한 웹사이트 입니다. ES6, NodeJS, VueJS 학습 후 실습형 프로젝트로 1차 개발이 완료되었습니다.</p>
             <ul class="list-unstyled mt-4 mb-3">
@@ -196,7 +196,7 @@
           </ul>
           <div class="grid-items portfolio-section preload">
             <article class="item column four" data-groups='["all", "java"]'>
-              <figure><img src="/static/img/calwMachine.png" alt=""></figure>
+              <figure><img src="/img/calwMachine.png" alt=""></figure>
               <a class="overlay" href="https://github.com/opzyra/CalwMachine" target="_black">
                 <div class="overlay-content">
                   <div class="post-type"><i class="icon icon-search"></i></div>
@@ -206,7 +206,7 @@
               </a>
             </article>
             <article class="item column eight" data-groups='["all", "java", "jsp"]'>
-              <figure><img src="/static/img/atsumari.png" alt=""></figure>
+              <figure><img src="/img/atsumari.png" alt=""></figure>
               <a class="overlay" href="https://github.com/opzyra/Atsumari" target="_black">
                 <div class="overlay-content">
                   <div class="post-type"><i class="icon icon-search"></i></div>
@@ -216,7 +216,7 @@
               </a>
             </article>
             <article class="item column four" data-groups='["all", "javascript"]'>
-              <figure><img src="/static/img/callsearch.png" alt=""></figure>
+              <figure><img src="/img/callsearch.png" alt=""></figure>
               <a class="overlay" href="https://github.com/opzyra/CallSearch" target="_black">
                 <div class="overlay-content">
                   <div class="post-type"><i class="icon icon-search"></i></div>
@@ -226,7 +226,7 @@
               </a>
             </article>
             <article class="item column eight" data-groups='["all", "java", "spring"]'>
-              <figure><img src="/static/img/endorphin.png" alt=""></figure>
+              <figure><img src="/img/endorphin.png" alt=""></figure>
               <a class="overlay" href="https://github.com/opzyra/Endorphin" target="_black">
                 <div class="overlay-content">
                   <div class="post-type"><i class="icon icon-search"></i></div>
@@ -236,7 +236,7 @@
               </a>
             </article>
             <article class="item column eight" data-groups='["all", "html", "javascript"]'>
-              <figure><img src="/static/img/fcallvan.png" alt=""></figure>
+              <figure><img src="/img/fcallvan.png" alt=""></figure>
               <a class="overlay" href="https://fcallvan.github.io/" target="_black">
                 <div class="overlay-content">
                   <div class="post-type"><i class="icon icon-search"></i></div>
@@ -246,7 +246,7 @@
               </a>
             </article>
             <article class="item column four" data-groups='["all", "java", "spring"]'>
-              <figure><img src="/static/img/pm.png" alt=""></figure>
+              <figure><img src="/img/pm.png" alt=""></figure>
               <a class="overlay" href="https://github.com/opzyra/ProjectManager" target="_black">
                 <div class="overlay-content">
                   <div class="post-type"><i class="icon icon-search"></i></div>
@@ -265,6 +265,45 @@
 
 <script>
 export default {
+  metaInfo () {
+    return {
+      title: this.meta.title,
+      meta: [
+        { property: 'keywords', content: this.meta.keywords },
+        { property: 'description', content: this.description },
+        { property: 'author', content: this.meta.url },
+
+        { property: 'og:title', content: this.meta.title },
+        { property: 'og:site_name', content: 'Codepresso' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: this.meta.url },
+        { property: 'og:image', content: this.meta.image },
+        { property: 'og:description', content: this.meta.description },
+
+        { name: 'twitter:card', content: 'summary' },
+        { name: 'twitter:site', content: this.meta.url },
+        { name: 'twitter:title', content: this.meta.title },
+        { name: 'twitter:description', content: this.meta.description },
+        { name: 'twitter:creator', content: '@opzyra' },
+        { name: 'twitter:image:src', content: this.meta.image },
+
+        { itemprop: 'name', content: this.meta.title },
+        { itemprop: 'description', content: this.meta.description },
+        { itemprop: 'image', content: this.meta.image }
+      ]
+    }
+  },
+  data () {
+    return {
+      meta: {
+        title: 'Codepresso | Portfolio',
+        keywords: '웹개발, 프론트엔드, 백엔드, 개발자 블로그, 포트폴리오',
+        description: 'WEB Developer HYUN HO - A place to study solid code like espresso',
+        url: 'https://codepresso.net',
+        image: 'https://codepresso.net/img/og.png'
+      }
+    }
+  }
 }
 </script>
 

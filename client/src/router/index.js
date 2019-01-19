@@ -1,19 +1,19 @@
-import Navbar from '../layout/Navbar.vue'
-import Footer from '../layout/Footer.vue'
-import Scroll from '../layout/Scroll.vue'
-
-import Login from '../views/Login.vue'
-import NotFound from '../views/NotFound.vue'
-import NonAuthenticated from '../views/NonAuthenticated.vue'
-import Home from '../views/Home.vue'
-import Portfolio from '../views/Portfolio.vue'
-import DevLog from '../views/DevLog.vue'
-import Topic from '../views/Topic.vue'
-import TopicEditor from '../views/TopicEditor.vue'
-import Feed from '../views/Feed.vue'
-import FeedEditor from '../views/FeedEditor.vue'
-
 import store from '../store'
+
+const Navbar = () => import('../layout/Navbar.vue')
+const Footer = () => import('../layout/Footer.vue')
+const Scroll = () => import('../layout/Scroll.vue')
+
+const Login = () => import('../views/Login.vue')
+const NotFound = () => import('../views/NotFound.vue')
+const NonAuthenticated = () => import('../views/NonAuthenticated.vue')
+const Home = () => import('../views/Home.vue')
+const Portfolio = () => import('../views/Portfolio.vue')
+const DevLog = () => import('../views/DevLog.vue')
+const Topic = () => import('../views/Topic.vue')
+const TopicEditor = () => import('../views/TopicEditor.vue')
+const Feed = () => import('../views/Feed.vue')
+const FeedEditor = () => import('../views/FeedEditor.vue')
 
 const isAuth = () => (to, from, next) => {
   const role = store.getters['auth/role']

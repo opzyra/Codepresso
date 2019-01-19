@@ -138,7 +138,7 @@ export default {
         this.simplemde.value(newMark)
         document.querySelector('.core-menu').click()
       }).catch(() => {
-        this.$swal({title: '서버 장애', text: '이미지 업로드에 실패하였습니다.', type: 'error', confirmButtonText: '확인'})
+        this.$swal({ title: '서버 장애', text: '이미지 업로드에 실패하였습니다.', type: 'error', confirmButtonText: '확인' })
       })
     },
     showFeedWriteSlide () {
@@ -163,7 +163,6 @@ export default {
           this.tags = results.tags
           this.access = results.access
           this.description = results.description
-          console.log('Results for panel 1:', results)
         })
     },
     showReferSlide () {
@@ -181,7 +180,6 @@ export default {
       panel.promise
         .then(results => {
           this.refers = results.refers
-          console.log('Results for panel 1:', results)
         })
     },
     showTempSlide () {
@@ -195,7 +193,6 @@ export default {
 
       panel1Handle.promise
         .then(results => {
-          console.log('Results for panel 1:', results)
         })
     }
   }
@@ -203,8 +200,6 @@ export default {
 </script>
 
 <style>
-@import 'github-markdown-css';
-@import '../assets/css/atom-one-light.css';
 .CodeMirror-fullscreen {
   top: 65px !important;
 }

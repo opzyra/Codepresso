@@ -27,12 +27,12 @@ export default {
       if (window.pageYOffset >= 630){
         this.topButton = true
         $('header').addClass('fixed-header')
-        $('.beetle-logo').attr('src', '/static/img/black.png')
+        $('.beetle-logo').attr('src', '/img/black.png')
       } else {
         this.topButton = false
           if(!$('body').hasClass('mobile')){
             $('header').removeClass('fixed-header')
-            $('.beetle-logo').attr('src', '/static/img/white.png')
+            $('.beetle-logo').attr('src', '/img/white.png')
           }
       } 
     }
