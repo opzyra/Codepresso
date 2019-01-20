@@ -6,6 +6,7 @@ const Tag = require('../models/tag')
 const Refer = require('../models/refer')
 const FeedTag = require('../models/feed_tag')
 const FeedRefer = require('../models/feed_refer')
+const jwt = require('../middlewares/jwt')
 
 const create = async (req, res, next) => {
   try {
@@ -141,6 +142,9 @@ const update = async (req, res, next) => {
 const findByPk = async (req, res, next) => {
   let { idx } = req.params
 
+  const { authorization } = req.headers
+  const role = jwt.getRole(authorization)
+
   const query = `
       select
       IFNULL((SELECT idx FROM feed WHERE idx < :idx AND access = 1 ORDER BY idx DESC LIMIT 1), 0) AS prev
@@ -153,6 +157,13 @@ const findByPk = async (req, res, next) => {
   const result = await Feed.findByPk(idx, {
     include: [{ model: Tag, as: 'tags' }, { model: Refer, as: 'refers' }]
   })
+
+  // 조회수 증가
+  if(role === null || role !== 'ROLE_ADMIN') {
+    await Feed.update({ hit: result.hit + 1 }, { where: { idx } })
+    result.hit += 1
+  }
+
   return res.json({feed: result, page: page[0][0]})
 }
 
@@ -166,6 +177,7 @@ const findAndCountAll = async (req, res, next) => {
     let { limit } = req.query
     
     const result = await Feed.findAndCountAll({
+      attributes: { exclude: ['contents'] },
       order: [['idx', 'DESC']],
       limit: parseInt(limit)
     })

@@ -2,7 +2,11 @@
   <div>
     <div class="post-area clear-after">
       <article class="article" role="main">
-        <h5 class="meta-post"><time v-text="dateFormat(feed.regDate)"></time> - Codepresso Feed Written By <a href="https://github.com/opzyra" target="_blank">opzyra</a></h5>
+        <h5 class="meta-post"><time v-text="dateFormat(feed.regDate)"></time> - Feed
+          <div class="inline m-r-8 m-l-8"><i class="mdi mdi-cursor-default-click m-r-3"></i><span v-text="feed.hit"></span></div>
+          <div class="inline m-r-8"><i class="mdi mdi-link-variant m-r-3"></i><span v-text="feed.refers.length"></span></div>
+          <div class="inline"><i class="mdi mdi-comment-processing-outline m-r-3"></i><span v-text="comment.length"></span></div>
+        </h5>
         <h1 v-text="feed.title"></h1>
         <div class="update-btn" v-if="role === 'ROLE_ADMIN'">
           <router-link :to="`/devlog/feed/editor/${idx}`" tag="a" class="button transparent blue xs m-r-0"><i class="mdi mdi-square-edit-outline"></i>수정</router-link>

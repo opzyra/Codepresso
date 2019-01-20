@@ -8,7 +8,6 @@ module.exports = {
   ensureAuth(role) {
     return (req, res, next) => {
       const { authorization } = req.headers
-      const user = req.user
       if (!authorization) {
         res.status(401)
         throw Error('No Authorization headers')
@@ -25,6 +24,17 @@ module.exports = {
         return res.status(401).json({error: e.message})
       }
     }
+  },
+  getRole(token) {
+    if (!token) return null
+    
+    try {
+      const user = this.verify(token)
+      return user.role
+    } catch (e) {
+      throw Error('Invalid Authorization')
+    }
+
   },
   verify(token) {
     return jwt.verify(token.replace(/^Bearer\s/, ''), secret)

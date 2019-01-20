@@ -14,7 +14,9 @@
               </div>
               <div class="column nine last">
                 <h2><router-link :to="`/devlog/topic/${item.idx}`" tag="a" v-text="item.title"></router-link></h2>
-                <h5 class="meta-post"><time v-text="dateFormat(item.regDate)"></time> - Codepresso Topic Written By <a href="https://github.com/opzyra" target="_blank">opzyra</a></h5>
+                <h5 class="meta-post"><time v-text="dateFormat(item.regDate)"></time>  - Topic
+                  <div class="inline m-l-8 m-r-8"><i class="mdi mdi-cursor-default-click m-r-3"></i><span v-text="item.hit"></span></div>
+                </h5>
                 <p v-text="item.description"></p>
               </div>
             </article>

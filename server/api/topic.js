@@ -2,6 +2,7 @@ const { sequelize } = require('../models')
 const Topic = require('../models/topic')
 const Feed = require('../models/feed')
 const TopicFeed = require('../models/topic_feed')
+const jwt = require('../middlewares/jwt')
 
 const create = async (req, res, next) => {
   try {
@@ -77,6 +78,9 @@ const update = async (req, res, next) => {
 const findByPk = async (req, res, next) => {
   try {
     let { idx } = req.params
+    const { authorization } = req.headers
+    const role = jwt.getRole(authorization)
+
     const result = await Topic.findByPk(idx, {
       include: [{ model: Feed, as: 'feeds' }]
     })
@@ -88,6 +92,12 @@ const findByPk = async (req, res, next) => {
       where idx = :idx
     `
     const page = await Topic.sequelize.query(query, { replacements: { idx } })
+
+    // 조회수 증가
+    if(role === null || role !== 'ROLE_ADMIN') {
+      await Topic.update({ hit: result.hit + 1 }, { where: { idx } })
+      result.hit += 1
+    }
 
     return res.json({ topic: result, page: page[0][0] })
 
@@ -101,6 +111,7 @@ const findAndCountAll = async (req, res, next) => {
     let { limit, offset } = req.query
     
     const result = await Topic.findAndCountAll({
+      attributes: { exclude: ['contents'] },
       limit: parseInt(limit),
       offset: parseInt(offset) - 1
     })

@@ -2,7 +2,10 @@
   <div>
     <div class="post-area clear-after">
       <article class="article" role="main">
-        <h5 class="meta-post"><time v-text="dateFormat(topic.regDate)"></time> - Codepresso Topic Written By <a href="https://github.com/opzyra" target="_blank">opzyra</a></h5>
+        <h5 class="meta-post"><time v-text="dateFormat(topic.regDate)"></time> - Topic
+          <div class="inline m-l-8 m-r-8"><i class="mdi mdi-cursor-default-click m-r-3"></i><span v-text="topic.hit"></span></div>
+          <div class="inline"><i class="mdi mdi-link-variant m-r-3"></i><span v-text="topic.feeds.length"></span></div>
+        </h5>
         <h1 v-text="topic.title"></h1>
         <div class="update-btn" v-if="role === 'ROLE_ADMIN'">
           <router-link :to="`/devlog/topic/editor/${idx}`" tag="a" class="button transparent blue xs"><i class="mdi mdi-square-edit-outline"></i>수정</router-link>
