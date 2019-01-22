@@ -176,7 +176,7 @@
                 <div class="experience-info clear-after">
                   <h5>Datagen</h5>
                   <div class="role">Web Service Researcher</div>
-                  <p class="m-b-0">2018.11 ~ Now (<span v-text="dataGenMonthCal"></span> months) Deajeon, Korea</p>
+                  <p class="m-b-0">2018.11 ~ 2019.01 (3 months) Deajeon, Korea</p>
                   <p class="m-t-0">블록체인 기반 웹 서비스</p>
                 </div>
               </div>
@@ -307,7 +307,7 @@ export default {
   },
   computed: {
     ...mapState('main', [ 'resumePublished' ]),
-    dataGenMonthCal () {
+    monthCal () {
       return new Date(
         new Date().getTime() - new Date('2018-11-01').getTime()
       ).getMonth()
