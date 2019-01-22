@@ -9,8 +9,6 @@ const bcrypt = require('../middlewares/bcrypt')
 const Account = require('../models/account')
 const oauthConfig = require('../config/oauth')
 
-const error = require('../error')
-
 const oauthLogin = async (oauth, done) => {
 
   let platform = 0

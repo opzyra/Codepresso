@@ -65,7 +65,6 @@ const sign = async (req, res, next) => {
 module.exports = {
   login,
   token,
-  tokenPublish,
   github,
   githubCallback,
   facebook,
