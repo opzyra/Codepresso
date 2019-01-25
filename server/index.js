@@ -1,5 +1,6 @@
 const app = require('./app')
 const models = require('./models')
+const cron = require('./cron')
 
 const Account = require('./models/account')
 const Topic = require('./models/topic')
