@@ -119,7 +119,7 @@
       <section class="row-beetle section promo" id="js">
         <div class="row-beetle-content buffer even clear-after">
           <div class="side-mockup right-mockup animation">
-            <img src="/img/promo-3.png" class="floating" alt="">
+            <img src="/img/promo-4.png" class="floating" alt="">
           </div>
           <div class="column six">
             <img v-lazy="`/img/js.png`" class="promo-stack">
@@ -141,7 +141,7 @@
               <li class="p-t-10 p-b-10">
               <div class="d-flex align-items-center">
                 <span class="badge mr-10 badge-primary badge-circle"><i class="fa fa-calendar"></i></span>
-                <h5 class="m-b-0 m-t-0 font-sans">2018.09.17 ~ 2019.01.07</h5>
+                <h5 class="m-b-0 m-t-0 font-sans">2018.12.01 ~ 진행중</h5>
               </div>
               </li>
             </ul>
@@ -270,7 +270,7 @@ export default {
       title: this.meta.title,
       meta: [
         { property: 'keywords', content: this.meta.keywords },
-        { property: 'description', content: this.description },
+        { property: 'description', content: this.meta.description },
         { property: 'author', content: this.meta.url },
 
         { property: 'og:title', content: this.meta.title },

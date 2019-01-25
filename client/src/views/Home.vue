@@ -16,7 +16,7 @@
         <div class="intro-item" style="background-image: url(/img/warp-05.png);">
           <div class="caption">
             <h2>Work</h2>
-            <p class="m-b-3">현장에서 개발에 참여한 프로젝트</p>
+            <p class="m-b-3">현업에서 개발에 참여한 프로젝트</p>
             <p>PROJECT</p>
             <router-link tag="a" class="button white transparent" to="/work" href="javascript:void(0)">Read More</router-link>
           </div>
@@ -134,23 +134,23 @@
             <div class="quote">
               <div class="column two">
                 <figure class="testimonial-img">
-                  <img v-lazy="`/img/vue-native.png`" alt="">
+                  <img v-lazy="`/img/nuxt.jpg`" alt="">
                 </figure>
               </div>
               <div class="column ten last">
-                <p>"VueJS를 통해 모바일 애플리케이션 개발이 가능한 Vue Native에 대해 찾아보고 공부하고 있습니다."</p>
-                <div class="author">Vue Native</div>
+                <p>"Nuxt를 통해 SPA의 한계인 SEO최적화를 쉽게 해결할 수 있는 SSR에 관심을 가지고 공부하고 있습니다."</p>
+                <div class="author">Nuxt.js</div>
               </div>
             </div>
             <div class="quote">
               <div class="column two">
                 <figure class="testimonial-img">
-                  <img v-lazy="`/img/mongodb.png`" alt="">
+                  <img v-lazy="`/img/react.jpg`" alt="">
                 </figure>
               </div>
               <div class="column ten last">
-                <p>"RDB라는 틀에서 벗어난 JSON형태의 NoSQL을 프로젝트에 녹여내기 위해 찾아보고 있습니다."</p>
-                <div class="author">MongoDB</div>
+                <p>"React를 통해 SPA 개발 및 더 나아가 React Native를 활용한 앱 개발을 목표로 공부하고 있습니다."</p>
+                <div class="author">React</div>
               </div>
             </div>
           </div>
@@ -265,7 +265,7 @@ export default {
       title: this.meta.title,
       meta: [
         { property: 'keywords', content: this.meta.keywords },
-        { property: 'description', content: this.description },
+        { property: 'description', content: this.meta.description },
         { property: 'author', content: this.meta.url },
 
         { property: 'og:title', content: this.meta.title },

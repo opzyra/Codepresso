@@ -122,7 +122,7 @@ export default {
       title: this.meta.title,
       meta: [
         { property: 'keywords', content: this.meta.keywords },
-        { property: 'description', content: this.description },
+        { property: 'description', content: this.meta.description },
         { property: 'author', content: this.meta.url },
 
         { property: 'og:title', content: this.meta.title },
