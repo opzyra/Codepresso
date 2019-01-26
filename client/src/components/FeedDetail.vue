@@ -121,9 +121,9 @@ export default {
     return {
       title: this.meta.title,
       meta: [
-        { property: 'keywords', content: this.meta.keywords },
-        { property: 'description', content: this.meta.description },
-        { property: 'author', content: this.meta.url },
+        { name: 'keywords', property: 'keywords', content: this.meta.keywords },
+        { name: 'description', property: 'description', content: this.meta.description },
+        { name: 'author', property: 'author', content: this.meta.url },
 
         { property: 'og:title', content: this.meta.title },
         { property: 'og:site_name', content: 'Codepresso' },
