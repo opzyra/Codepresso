@@ -1,4 +1,5 @@
 .DS_Store
+prerender.config.js
 
 config
 node_modules
