@@ -2,23 +2,15 @@ const path = require('path')
 const PrerenderSPAPlugin = require('prerender-spa-plugin')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const productionGzipExtensions = ['js', 'css']
-const axios = require('axios')
-let routes = ['/home', '/portfolio', '/devlog']
-axios.get('https://www.codepresso.net/api/info/devlog/count').then(res => {
-  for (let i = 1; i <= res.data.topic; i++) {
-    routes.push(`/devlog/topic/${i}`)
-  }
-  for (let i = 1; i <= res.data.feed; i++) {
-    routes.push(`/devlog/feed/${i}`)
-  }
-})
+const routesPrerender = require('./prerender.config')
+const routesBasic = ['/home', '/portfolio', '/devlog']
 
 const config = {
   configureWebpack: {
     plugins: [
       new PrerenderSPAPlugin({
         staticDir: path.join(__dirname, 'dist'),
-        routes: routes,
+        routes: routesBasic.concat(routesPrerender),
         renderAfterTime: 5000,
         renderAfterElementExists: '#app'
       }),

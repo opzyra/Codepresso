@@ -93,8 +93,8 @@ export default {
         a.forEach(e => {
           let pathName = e.pathname
           if (pathName.indexOf('/devlog/feed/') === 0) {
-            e.setAttribute('href', 'javascript:void(0)')
             e.addEventListener('click', () => {
+              event.preventDefault()
               this.$router.push(pathName)
             })
           } else {
