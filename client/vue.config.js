@@ -3,16 +3,16 @@ const PrerenderSPAPlugin = require('prerender-spa-plugin')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const productionGzipExtensions = ['js', 'css']
 const routesPrerender = require('./prerender.config')
-const routesBasic = ['/home', '/portfolio', '/devlog']
 
 const config = {
   configureWebpack: {
     plugins: [
       new PrerenderSPAPlugin({
         staticDir: path.join(__dirname, 'dist'),
-        routes: routesBasic.concat(routesPrerender),
-        renderAfterTime: 5000,
-        renderAfterElementExists: '#app'
+        routes: routesPrerender,
+        renderer: new PrerenderSPAPlugin.PuppeteerRenderer({
+          renderAfterTime: 3000
+        })
       }),
       new CompressionWebpackPlugin({
         algorithm: 'gzip',

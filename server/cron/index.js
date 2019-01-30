@@ -25,25 +25,34 @@ cron.schedule('0 0 23 * * *', async () => {
 
 })
 
-cron.schedule('0 30 0 * * *', async () => {
-  let query = `
+cron.schedule('0 30 23 * * *', async () => {
+  let topicQuery = `
       SELECT
-        (SELECT COUNT(*) FROM topic) AS topic,
-        (SELECT COUNT(*) FROM feed) AS feed,
-        (SELECT COUNT(*) FROM tag) AS tag,
-        (SELECT COUNT(*) FROM comment) AS comment
-      FROM DUAL
+        idx
+      FROM topic
+      WHERE regDate >= CURRENT_DATE();
     `
-  const qrs = await sequelize.query(query)
-  const counts = qrs[0][0]
+  const topicQrs = await sequelize.query(topicQuery)
+  const topicRes = topicQrs[0]
+
+  let feedQuery = `
+      SELECT
+        idx
+      FROM feed
+      WHERE regDate >= CURRENT_DATE();
+    `
+  const feedQrs = await sequelize.query(feedQuery)
+  const feedRes = feedQrs[0]
+
   let routes = []
 
-  for (let i = 1; i <= counts.topic; i++) {
-    routes.push(`/devlog/topic/${i}`)
+  for (let i = 0; i < topicRes.length; i++) {
+    routes.push(`/devlog/topic/${topicRes[i].idx}`)
   }
-  for (let i = 1; i <= counts.feed; i++) {
-    routes.push(`/devlog/feed/${i}`)
+  for (let i = 0; i < feedRes.length; i++) {
+    routes.push(`/devlog/feed/${feedRes[i].idx}`)
   }
+
   fs.writeFile(`/opt/client/prerender.config.js`, `module.exports = ['${routes.join('\', \'')}']`, 'utf-8', err => {
     // TODO Log를 남기자.. 시스템에서 잘 처리됬는지 기록을 남겨야 알 수 있다.
     if(err){
