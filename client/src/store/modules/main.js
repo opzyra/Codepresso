@@ -21,7 +21,7 @@ const state = {
       href: 'https://github.com/opzyra'
     }
   ],
-  resumePublished: false,
+  resumePublished: true,
   loading: true
 }
 

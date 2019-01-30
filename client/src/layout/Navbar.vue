@@ -43,6 +43,8 @@ export default {
         const title = '열람 불가'
         const text = '이력서가 비공개 상태입니다.'
         this.$swal({ title, text, type: 'error', confirmButtonText: '확인' })
+      } else {
+        window.open('https://codepresso.net/resume/', '_blank')
       }
     },
     signOut () {
