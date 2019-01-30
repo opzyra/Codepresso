@@ -10,7 +10,7 @@ cron.schedule('0 0 23 * * *', async () => {
       AND tf.topicIdx = :idx
     `
   const qrs = await sequelize.query(query, { replacements: { idx: 2 } })
-  const feeds = qrs[0][0]
+  const feeds = qrs[0]
 
   feeds.forEach(el => {
     fs.writeFile(`/opt/github/TIL/${el.title}.md`, `# ${el.title}\n` + `${el.contents}`, 'utf-8', err => {
