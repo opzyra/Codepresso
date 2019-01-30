@@ -8,7 +8,7 @@
               <p>개발과 관련된 다양한 생각을 기록하는 공간</p>
             </div>
             <div class="photocaption">
-              <h4>Shot by <a href="https://www.freepik.com/" target="_black">Freepik Vectors</a></h4>
+              <h4>Shot by <a href="https://www.freepik.com/" target="_blank">Freepik Vectors</a></h4>
             </div>
           </div>
         </div>

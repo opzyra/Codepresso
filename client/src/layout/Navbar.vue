@@ -14,7 +14,7 @@
           <ul class="reset" role="navigation">
             <li class="menu-item" v-for="(item, index) in menu" :key="index">
               <router-link v-if="item.route" v-bind:to="item.route" tag="a" v-text="item.name" class="router-link"></router-link>
-              <a v-if="item.href" v-bind:href="item.href" v-text="item.name" target="_black" class="router-link"></a>
+              <a v-if="item.href" v-bind:href="item.href" v-text="item.name" target="_blank" class="router-link"></a>
               <a v-if="item.action" v-text="item.name" class="router-link" v-on:click.prevent="item.action"></a>
             </li>
             <li class="menu-item icon">

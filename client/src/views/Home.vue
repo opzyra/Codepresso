@@ -10,7 +10,7 @@
             <a class="button white transparent" v-scroll-to="{ element: '#main', duration: 800 }">Read More</a>
           </div>
           <div class="photocaption">
-            <h4>Shot by <a href="https://www.freepik.com/" target="_black">Freepik Vectors</a></h4>
+            <h4>Shot by <a href="https://www.freepik.com/" target="_blank">Freepik Vectors</a></h4>
           </div>
         </div>
         <div class="intro-item" style="background-image: url(/img/warp-05.png);">
@@ -21,7 +21,7 @@
             <router-link tag="a" class="button white transparent" to="/work" href="javascript:void(0)">Read More</router-link>
           </div>
           <div class="photocaption">
-            <h4>Shot by <a href="https://www.freepik.com/" target="_black">Freepik Vectors</a></h4>
+            <h4>Shot by <a href="https://www.freepik.com/" target="_blank">Freepik Vectors</a></h4>
           </div>
         </div>
         <div class="intro-item" style="background-image: url(/img/warp-03.png);">
@@ -32,7 +32,7 @@
             <router-link tag="a" class="button white transparent" to="/portfolio" href="javascript:void(0)">Read More</router-link>
           </div>
           <div class="photocaption">
-            <h4>Shot by <a href="https://www.freepik.com/" target="_black">Freepik Vectors</a></h4>
+            <h4>Shot by <a href="https://www.freepik.com/" target="_blank">Freepik Vectors</a></h4>
           </div>
         </div>
         <div class="intro-item" style="background-image: url(/img/warp-02.png);">
@@ -43,7 +43,7 @@
             <router-link tag="a" class="button white transparent" to="/devlog" href="javascript:void(0)">Read More</router-link>
           </div>
           <div class="photocaption">
-            <h4>Shot by <a href="https://www.freepik.com/" target="_black">Freepik Vectors</a></h4>
+            <h4>Shot by <a href="https://www.freepik.com/" target="_blank">Freepik Vectors</a></h4>
           </div>
         </div>
         <div class="intro-item" style="background-image: url(/img/warp-04.png);">
@@ -51,10 +51,10 @@
             <h2>GitHub</h2>
             <p class="m-b-3">나만의 코딩 스타일을 살펴보는 곳</p>
             <p>REPOSITORIES</p>
-            <a class="button white transparent" href="https://github.com/opzyra" target="_black">Read More</a>
+            <a class="button white transparent" href="https://github.com/opzyra" target="_blank">Read More</a>
           </div>
           <div class="photocaption">
-            <h4>Shot by <a href="https://www.freepik.com/" target="_black">Freepik Vectors</a></h4>
+            <h4>Shot by <a href="https://www.freepik.com/" target="_blank">Freepik Vectors</a></h4>
           </div>
         </div>
       </div>

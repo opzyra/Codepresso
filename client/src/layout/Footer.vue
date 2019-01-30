@@ -6,9 +6,9 @@
           <div class="widget column four">
             <h4>Credits</h4>
             <ul class="plain">
-              <li><a href="https://flatlogic.github.io/" target="_black">Sing App</a> - Flatlogic</li>
-              <li><a href="https://fonts.google.com/specimen/Open+Sans" target="_black">Open Sans Font</a> - Steve Matteson</li>
-              <li><a href="https://www.freepik.com/" target="_black">Freepik Vector</a> - Freepik Company S.L</li>
+              <li><a href="https://flatlogic.github.io/" target="_blank">Sing App</a> - Flatlogic</li>
+              <li><a href="https://fonts.google.com/specimen/Open+Sans" target="_blank">Open Sans Font</a> - Steve Matteson</li>
+              <li><a href="https://www.freepik.com/" target="_blank">Freepik Vector</a> - Freepik Company S.L</li>
             </ul>
           </div>
           <div class="widget column four">
@@ -22,8 +22,8 @@
           <div class="widget meta-social column four last">
             <h4>Reference</h4>
             <ul class="inline">
-              <li><a href="https://github.com/opzyra" class="twitter-share border-box" target="_black"><i class="fa fa-github fa-lg"></i></a></li>
-              <li><a href="https://www.slideshare.net/ssuser5aebf1" class="facebook-share border-box" target="_black"><i class="fa fa-linkedin-square fa-lg"></i></a></li>
+              <li><a href="https://github.com/opzyra" class="twitter-share border-box" target="_blank"><i class="fa fa-github fa-lg"></i></a></li>
+              <li><a href="https://www.slideshare.net/ssuser5aebf1" class="facebook-share border-box" target="_blank"><i class="fa fa-linkedin-square fa-lg"></i></a></li>
             </ul>
           </div>
         </section><!-- top-footer -->

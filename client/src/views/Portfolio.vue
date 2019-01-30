@@ -8,7 +8,7 @@
               <p>다양한 기술을 공부하며 개발한 애플리케이션</p>
             </div>
             <div class="photocaption">
-              <h4>Shot by <a href="https://www.freepik.com/" target="_black">Freepik Vectors</a></h4>
+              <h4>Shot by <a href="https://www.freepik.com/" target="_blank">Freepik Vectors</a></h4>
             </div>
           </div>
         </div>
@@ -197,7 +197,7 @@
           <div class="grid-items portfolio-section preload">
             <article class="item column four" data-groups='["all", "java"]'>
               <figure><img src="/img/calwMachine.png" alt=""></figure>
-              <a class="overlay" href="https://github.com/opzyra/CalwMachine" target="_black">
+              <a class="overlay" href="https://github.com/opzyra/CalwMachine" target="_blank">
                 <div class="overlay-content">
                   <div class="post-type"><i class="icon icon-search"></i></div>
                   <h2>CalwMachine</h2>
@@ -207,7 +207,7 @@
             </article>
             <article class="item column eight" data-groups='["all", "java", "jsp"]'>
               <figure><img src="/img/atsumari.png" alt=""></figure>
-              <a class="overlay" href="https://github.com/opzyra/Atsumari" target="_black">
+              <a class="overlay" href="https://github.com/opzyra/Atsumari" target="_blank">
                 <div class="overlay-content">
                   <div class="post-type"><i class="icon icon-search"></i></div>
                   <h2>Atsumari</h2>
@@ -217,7 +217,7 @@
             </article>
             <article class="item column four" data-groups='["all", "javascript"]'>
               <figure><img src="/img/callsearch.png" alt=""></figure>
-              <a class="overlay" href="https://github.com/opzyra/CallSearch" target="_black">
+              <a class="overlay" href="https://github.com/opzyra/CallSearch" target="_blank">
                 <div class="overlay-content">
                   <div class="post-type"><i class="icon icon-search"></i></div>
                   <h2>CallSearch</h2>
@@ -227,7 +227,7 @@
             </article>
             <article class="item column eight" data-groups='["all", "java", "spring"]'>
               <figure><img src="/img/endorphin.png" alt=""></figure>
-              <a class="overlay" href="https://github.com/opzyra/Endorphin" target="_black">
+              <a class="overlay" href="https://github.com/opzyra/Endorphin" target="_blank">
                 <div class="overlay-content">
                   <div class="post-type"><i class="icon icon-search"></i></div>
                   <h2>Endorphin</h2>
@@ -237,7 +237,7 @@
             </article>
             <article class="item column eight" data-groups='["all", "html", "javascript"]'>
               <figure><img src="/img/fcallvan.png" alt=""></figure>
-              <a class="overlay" href="https://fcallvan.github.io/" target="_black">
+              <a class="overlay" href="https://fcallvan.github.io/" target="_blank">
                 <div class="overlay-content">
                   <div class="post-type"><i class="icon icon-search"></i></div>
                   <h2>Fcallvan</h2>
@@ -247,7 +247,7 @@
             </article>
             <article class="item column four" data-groups='["all", "java", "spring"]'>
               <figure><img src="/img/pm.png" alt=""></figure>
-              <a class="overlay" href="https://github.com/opzyra/ProjectManager" target="_black">
+              <a class="overlay" href="https://github.com/opzyra/ProjectManager" target="_blank">
                 <div class="overlay-content">
                   <div class="post-type"><i class="icon icon-search"></i></div>
                   <h2>ProjectManager</h2>
