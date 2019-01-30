@@ -9,6 +9,7 @@ import App from './App'
 import VueScrollTo from 'vue-scrollto'
 import VueSweetalert2 from 'vue-sweetalert2'
 import Meta from 'vue-meta'
+import VueAnalytics from 'vue-analytics'
 import VueCookie from 'vue-cookie'
 
 import routes from './router'
@@ -93,6 +94,11 @@ router.afterEach((to, from) => {
     store.commit('main/LOADING', false)
     init()
   }, time)
+})
+
+Vue.use(VueAnalytics, {
+  id: 'UA-127042488-1',
+  router
 })
 
 /* eslint-disable no-new */
