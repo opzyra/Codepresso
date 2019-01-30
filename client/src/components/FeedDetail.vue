@@ -14,6 +14,7 @@
         <viewer
         :value="feed.contents"
         @load="onEditorLoad"
+        ref="viewer"
         />
       </article>
 
@@ -162,10 +163,10 @@ export default {
   },
   created () {
     this.fetchComment()
-    this.setMeta()
   },
   mounted () {
     centerOverlay()
+    this.setMeta()
   },
   computed: {
     ...mapGetters('auth', ['role', 'name', 'email'])
@@ -179,8 +180,11 @@ export default {
       })
     },
     setMeta () {
+      let contents = this.$refs.viewer.$el.innerText.replace(/\n/g, ' ').replace(/( )+/g, ' ')
+      const description = contents.toString().trim().substr(0, 325)
+
       this.meta.title = this.feed.title
-      this.meta.description = this.feed.description
+      this.meta.description = description
       this.meta.keywords = (() => {
         let keywords = []
         this.feed.tags.forEach(e => {

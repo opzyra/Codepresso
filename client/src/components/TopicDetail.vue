@@ -16,6 +16,7 @@
         <viewer
         :value="topic.contents"
         @load="onEditorLoad"
+        ref="viewer"
         />
       </article>
     </div>
@@ -75,13 +76,16 @@ export default {
   computed: {
     ...mapGetters('auth', ['role'])
   },
-  created () {
+  mounted () {
     this.setMeta()
   },
   methods: {
     setMeta () {
+      let contents = this.$refs.viewer.$el.innerText.replace(/\n/g, ' ').replace(/( )+/g, ' ')
+      const description = contents.toString().trim().substr(0, 325)
+
       this.meta.title = this.topic.title
-      this.meta.description = this.topic.description
+      this.meta.description = description
       this.meta.keywords = this.topic.title
     },
     convertThumbnail (path) {
