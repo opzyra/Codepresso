@@ -7,7 +7,7 @@
             <!--<transition-group name="list" tag="div"></transition-group>-->
             <article class="clear-after" v-for="(item, idx) in topics" :key="idx">
               <div class="column three">
-                <figure>
+                <figure class="topic-thumbnail">
                   <img v-if="item.thumbnail != null" :src="item.thumbnail" :alt="item.title">
                   <img v-else src="/img/default_thumbnail.png" :alt="item.title">
                 </figure>
@@ -164,5 +164,13 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+@media handheld, only screen and (max-width: 48em) {
+  .devlog .topic-thumbnail {
+    display: none;
+  }
+  .devlog .sidebar {
+    margin-top: 3em;
+  }
 }
 </style>
