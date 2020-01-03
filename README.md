@@ -1,6 +1,9 @@
 # Codepresso
 
-**Codepresso는 개인 포트폴리오 웹 애플리케이션입니다.**
+![image](https://raw.githubusercontent.com/opzyra/codepresso/master/client/public/img/promo-4.png)
+
+**Codepresso는 개인 포트폴리오 웹 애플리케이션입니다.**  
+현재는 deprecated 되었으며 자세한 기술 스택은 아래를 참고해주세요.
 
 ## 개발스택
 
@@ -15,5 +18,4 @@
 - Express
 - Sequelize
 - MySQL
-
-* 이 프로젝트는 deprecated 되어 더이상 관리되지 않고 있습니다.
+- Passport
