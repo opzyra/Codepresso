@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@toast-ui/vue-editor": "^1.0.3",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "epic-spinners": "^1.0.4",
     "es6-promise": "^4.2.5",
     "event-source-polyfill": "^1.0.5",
